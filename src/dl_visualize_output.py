@@ -7,7 +7,7 @@ import re
 def visualize(image, line):
     width = image.shape[1]
     height = image.shape[0]
-    (x, y, w, h) = getVertices(line, width, height)
+    (x, y, w, h) = get_vertices(line, width, height)
     top_left = (int(x * width), int(y * height))
     bottom_right = (int((x + w) * width), int((y + h) * height))
 
@@ -15,14 +15,14 @@ def visualize(image, line):
     cv.imshow("foo", image)
     cv.waitKey(1000)
 
-def getVertices(line, imageWidth, imageHeight):
+def get_vertices(line, imageWidth, imageHeight):
     match = re.match(r"^(\d) ([\d\.]+) ([\d\.]+) ([\d\.]+) ([\d\.]+)$", line)
-    centerX = float(match.group(2))
-    centerY = float(match.group(3))
+    center_x = float(match.group(2))
+    center_y = float(match.group(3))
     width = float(match.group(4))
     height = float(match.group(5))
 
-    return (centerX - width/2, centerY - height/2, width, height)
+    return (center_x - width/2, center_y - height/2, width, height)
 
 print("processing....")
 
