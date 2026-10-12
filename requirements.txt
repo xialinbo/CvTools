@@ -1,4 +1,4 @@
-opencv-python
 numpy
-imageio
-Pillow
+ImageIO
+pillow
+opencv-python
